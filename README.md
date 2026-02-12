@@ -1,15 +1,16 @@
 # Google Calendar Keyboard Enhance
 
-A userscript that enhances Google Calendar with keyboard shortcuts and text copying features.
+A lightweight userscript that enhances Google Calendar with powerful keyboard shortcuts for efficient event manipulation.
 
 ## Features
 
-- **Double-click to copy text** from event views
 - **Keyboard shortcuts for event manipulation:**
   - `Alt+h/j/k/l` - Move events (Vim-style navigation)
   - `Alt+Shift+h/j/k/l` - Expand/shrink event duration
-  - `Alt+v` - Copy pattern selectors
   - `Ctrl+b` - Toggle menu
+- **Visual feedback** during drag operations
+- **No external dependencies** - pure vanilla JavaScript
+- **Lightweight** - only 323 lines of clean, maintainable code
 
 ## Installation
 
@@ -32,15 +33,14 @@ Once installed, the script automatically enhances Google Calendar when you visit
 
 | Shortcut | Action |
 |----------|--------|
-| `Alt+k` | Move event up |
-| `Alt+j` | Move event down |
-| `Alt+h` | Move event left |
-| `Alt+l` | Move event right |
+| `Alt+k` | Move event up (previous day) |
+| `Alt+j` | Move event down (next day) |
+| `Alt+h` | Move event left (earlier time) |
+| `Alt+l` | Move event right (later time) |
 | `Alt+Shift+k` | Shrink event duration (from bottom) |
 | `Alt+Shift+j` | Expand event duration (from bottom) |
 | `Alt+Shift+h` | Shrink event duration (from right) |
 | `Alt+Shift+l` | Expand event duration (from right) |
-| `Alt+v` | Copy pattern selectors |
 | `Ctrl+b` | Toggle main menu |
 
 ## Development
