@@ -112,7 +112,7 @@ function accTicker(f, { signal } = {}) {
     x += (s * +!id) + d(v += d(a = s * Math.abs(g) ** (1.3 + dt)));
     g || (a /= Math.E, a |= 0, v /= Math.E, v |= 0)
     // console.log({ x, v, a, g, t: new Date(t).toISOString(), dt })
-    f(x | 0); x -= x | 0;
+    o = x|0; o && (f(o), x -= o);
     id = active() ? (id || setInterval(tick, 1)) : (clearInterval(id) || reset());
   };
 }
