@@ -20,18 +20,18 @@ This script fixes that.
 
 ## Keyboard Shortcuts
 
-| Shortcut | Action |
-|----------|--------|
-| `Alt+K` | Move event earlier (up / -15 min) |
-| `Alt+J` | Move event later (down / +15 min) |
-| `Alt+H` | Move event to previous day (left) |
-| `Alt+L` | Move event to next day (right) |
-| `Alt+Shift+K` | Shrink event duration (earlier end) |
-| `Alt+Shift+J` | Expand event duration (later end) |
-| `Alt+Shift+H` | Shrink event duration (earlier start) |
-| `Alt+Shift+L` | Expand event duration (later start) |
-| `Alt+V` | Copy pattern selectors to clipboard |
-| `Ctrl+B` | Toggle sidebar menu |
+| Shortcut      | Action                              |
+| ------------- | ----------------------------------- |
+| `Alt+K`       | Move event up                       |
+| `Alt+J`       | Move event down                     |
+| `Alt+L`       | Move event right                    |
+| `Alt+H`       | Move event left                     |
+| `Alt+Shift+K` | Shrink event duration (from bottom) |
+| `Alt+Shift+J` | Expand event duration (from bottom) |
+| `Alt+Shift+H` | Shrink event duration (from right)  |
+| `Alt+Shift+L` | Expand event duration (from right)  |
+| `Alt+V`       | Copy pattern selectors              |
+| `Ctrl+B`      | Toggle main menu                    |
 
 ## Installation
 
@@ -75,3 +75,11 @@ MIT License - see [LICENSE](LICENSE)
 ## Author
 
 Created by [snomiao](mailto:snomiao@gmail.com)
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Support
+
+If you encounter any issues or have suggestions, please open an issue on GitHub.
