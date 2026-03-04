@@ -1,50 +1,50 @@
 // ==UserScript==
-// @name         [SNOLAB] Google Calendar keyboard enhance
-// @name:en      [SNOLAB] Google Calendar keyboard enhance
-// @name:zh      [SNOLAB] Google 日历键盘操作增强
-// @name:zh-CN   [SNOLAB] Google 日历键盘操作增强
-// @name:zh-TW   [SNOLAB] Google 日曆鍵盤操作增強
-// @name:ja      [SNOLAB] Google カレンダー キーボード操作強化
-// @name:ko      [SNOLAB] Google 캘린더 키보드 향상
-// @name:es      [SNOLAB] Google Calendar mejorado con teclado
-// @name:fr      [SNOLAB] Google Calendar amélioration clavier
-// @name:de      [SNOLAB] Google Kalender Tastaturverbesserung
-// @name:ru      [SNOLAB] Google Календарь улучшение клавиатуры
-// @namespace    https://userscript.snomiao.com/
-// @version      0.3.0
-// @description  Google Calendar keyboard enhancement. Features: Alt+hjkl to move events, Alt+Shift+hjkl to expand/shrink events
-// @description:en Google Calendar keyboard enhancement. Features: Alt+hjkl to move events, Alt+Shift+hjkl to expand/shrink events
-// @description:zh Google日历键盘增强。Alt+hjkl 移动日程事件, Alt+Shift+hjkl 扩展收缩日程事件
-// @description:zh-CN Google日历键盘增强。Alt+hjkl 移动日程事件, Alt+Shift+hjkl 扩展收缩日程事件
-// @description:zh-TW Google日曆鍵盤增強。Alt+hjkl 移動日程事件, Alt+Shift+hjkl 擴展收縮日程事件
-// @description:ja Googleカレンダーのキーボード操作強化。Alt+hjklでイベント移動、Alt+Shift+hjklでイベントの拡大縮小
-// @description:ko Google 캘린더 키보드 향상. Alt+hjkl로 이벤트 이동, Alt+Shift+hjkl로 이벤트 확장/축소
-// @description:es Mejora del teclado de Google Calendar. Alt+hjkl para mover eventos, Alt+Shift+hjkl para expandir/contraer eventos
-// @description:fr Amélioration du clavier Google Calendar. Alt+hjkl pour déplacer les événements, Alt+Shift+hjkl pour étendre/réduire les événements
-// @description:de Google Kalender Tastaturverbesserung. Alt+hjkl zum Verschieben von Ereignissen, Alt+Shift+hjkl zum Erweitern/Verkleinern von Ereignissen
-// @description:ru Улучшение клавиатуры Google Календаря. Alt+hjkl для перемещения событий, Alt+Shift+hjkl для расширения/сжатия событий
-// @author       snomiao@gmail.com
-// @match        *://calendar.google.com/*
-// @grant        none
-// @downloadURL  https://update.greasyfork.org/scripts/439210/%5BSNOLAB%5D%20Google%20Calendar%20keyboard%20enhance.user.js
-// @updateURL    https://update.greasyfork.org/scripts/439210/%5BSNOLAB%5D%20Google%20Calendar%20keyboard%20enhance.meta.js
+// @name              [SNOLAB] Google Calendar keyboard enhance
+// @name:en           [SNOLAB] Google Calendar keyboard enhance
+// @name:zh           [SNOLAB] Google 日历键盘操作增强
+// @name:zh-CN        [SNOLAB] Google 日历键盘操作增强
+// @name:zh-TW        [SNOLAB] Google 日曆鍵盤操作增強
+// @name:ja           [SNOLAB] Google カレンダー キーボード操作強化
+// @name:ko           [SNOLAB] Google 캘린더 키보드 향상
+// @name:es           [SNOLAB] Google Calendar mejorado con teclado
+// @name:fr           [SNOLAB] Google Calendar amélioration clavier
+// @name:de           [SNOLAB] Google Kalender Tastaturverbesserung
+// @name:ru           [SNOLAB] Google Календарь улучшение клавиатуры
+// @namespace         https://userscript.snomiao.com/
+// @version           0.3.0
+// @description       Move and resize Google Calendar events with keyboard hotkeys (no mouse needed). Vim-style Alt+HJKL shortcuts to drag events between days and time slots. Alt+Shift+HJKL to expand/shrink event duration. Reschedule events without clicking.
+// @description:en    Move and resize Google Calendar events with keyboard hotkeys (no mouse needed). Vim-style Alt+HJKL shortcuts to drag events between days and time slots. Alt+Shift+HJKL to expand/shrink event duration. Reschedule events without clicking.
+// @description:zh    用键盘快捷键移动和调整Google日历事件（无需鼠标）。Vim风格Alt+HJKL拖拽日程到不同日期和时间段，Alt+Shift+HJKL扩展/缩小事件时长。键盘重新安排日程，告别鼠标拖拽。
+// @description:zh-CN 用键盘快捷键移动和调整Google日历事件（无需鼠标）。Vim风格Alt+HJKL拖拽日程到不同日期和时间段，Alt+Shift+HJKL扩展/缩小事件时长。键盘重新安排日程，告别鼠标拖拽。
+// @description:zh-TW 用鍵盤快捷鍵移動和調整Google日曆事件（無需滑鼠）。Vim風格Alt+HJKL拖曳日程到不同日期和時段，Alt+Shift+HJKL擴展/縮小事件時長。鍵盤重新安排行程，告別滑鼠拖曳。
+// @description:ja    マウス不要！キーボードショートカットでGoogleカレンダーの予定を移動・リサイズ。Vim風Alt+HJKLで予定を別の日や時間帯にドラッグ、Alt+Shift+HJKLで予定の長さを調整。キーボードだけでスケジュール変更。
+// @description:ko    마우스 없이 키보드 단축키로 Google 캘린더 일정 이동 및 크기 조절. Vim 스타일 Alt+HJKL로 일정을 다른 날짜와 시간대로 드래그, Alt+Shift+HJKL로 일정 길이 조절. 키보드만으로 일정 재조정.
+// @description:es    Mueve y redimensiona eventos de Google Calendar con atajos de teclado (sin ratón). Teclas Vim Alt+HJKL para arrastrar eventos entre días y franjas horarias. Alt+Shift+HJKL para expandir/reducir la duración. Reprograma eventos sin hacer clic.
+// @description:fr    Déplacez et redimensionnez les événements Google Calendar avec des raccourcis clavier (sans souris). Touches Vim Alt+HJKL pour glisser les événements entre jours et créneaux horaires. Alt+Shift+HJKL pour étendre/réduire la durée. Replanifiez sans cliquer.
+// @description:de    Google Kalender-Ereignisse per Tastatur verschieben und skalieren (keine Maus nötig). Vim-Stil Alt+HJKL zum Ziehen von Terminen zwischen Tagen und Zeitfenstern. Alt+Shift+HJKL zum Erweitern/Verkürzen der Dauer. Termine ohne Klicken umplanen.
+// @description:ru    Перемещайте и изменяйте размер событий Google Календаря с помощью горячих клавиш (без мыши). Vim-стиль Alt+HJKL для перетаскивания событий между днями и временными слотами. Alt+Shift+HJKL для расширения/сжатия длительности. Перепланируйте без кликов.
+// @author            snomiao@gmail.com
+// @match             *://calendar.google.com/*
+// @grant             none
+// @downloadURL       https://update.greasyfork.org/scripts/439210/%5BSNOLAB%5D%20Google%20Calendar%20keyboard%20enhance.user.js
+// @updateURL         https://update.greasyfork.org/scripts/439210/%5BSNOLAB%5D%20Google%20Calendar%20keyboard%20enhance.meta.js
 // ==/UserScript==
 
 // --- Init ---
 
-// globalThis.gkcs_verbose = true;
-globalThis.gkcs_unload?.();
-globalThis.gkcs_unload = main();
+// window.gkcs_verbose = true;
+window.gkcs_unload?.();
+window.gkcs_unload = main();
 
 function main() {
   const ac = new AbortController()
   const signal = ac.signal
   console.clear();
 
-  const jk = accTicker((d) => eventMove([0, d]), { signal });
-  const hl = accTicker((d) => eventMove([d, 0]), { signal });
-  const sjk = accTicker((d) => eventExpand([0, d]), { signal });
-  const shl = accTicker((d) => eventExpand([d, 0]), { signal });
+  const jk = accTicker((d) => d && eventMove([0, d]), { signal });
+  const hl = accTicker((d) => d && eventMove([d, 0]), { signal });
+  const sjk = accTicker((d) => d && eventExpand([0, d]), { signal });
+  const shl = accTicker((d) => d && eventExpand([d, 0]), { signal });
 
   hotkeys({
     "ctrl+b": () => $visible(sel.Menu)?.click(),
@@ -112,7 +112,7 @@ function accTicker(f, { signal } = {}) {
     x += (s * +!id) + d(v += d(a = s * Math.abs(g) ** (1.3 + dt)));
     g || (a /= Math.E, a |= 0, v /= Math.E, v |= 0)
     // console.log({ x, v, a, g, t: new Date(t).toISOString(), dt })
-    o = x|0; o && (f(o), x -= o);
+    o = x | 0; o && (f(o), x -= o);
     id = active() ? (id || setInterval(tick, 1)) : (clearInterval(id) || reset());
   };
 }
@@ -248,7 +248,7 @@ async function inputDateTimeChange(sdt = 0, edt = 0) {
   const [sd1, st1] = splitISO(newStart);
   const [ed1, et1] = splitISO(newEnd);
 
-  if (globalThis.gkcs_verbose) {
+  if (window.gkcs_verbose) {
     console.table({
       startDate: startDate.toISOString(),
       endDate: endDate.toISOString(),
