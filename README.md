@@ -1,15 +1,37 @@
 # Google Calendar Keyboard Enhance
 
-A userscript that enhances Google Calendar with keyboard shortcuts and text copying features.
+**Move, resize, and reschedule Google Calendar events using only your keyboard** — no mouse needed. The missing hotkeys for Google Calendar.
+
+Google Calendar lacks hotkeys for moving events between days or time slots. This userscript adds **Vim-style HJKL keyboard shortcuts** to drag events around the calendar grid, expand/shrink event durations, and more — all without touching your mouse.
+
+## Why?
+
+Google Calendar's built-in keyboard shortcuts (hotkeys) let you create and delete events, but there's **no hotkey to move an event to a different time or day**. If you want to reschedule a meeting from Tuesday to Wednesday, or shift it 15 minutes earlier, you're forced to drag with a mouse or manually edit the time fields.
+
+This script fixes that.
 
 ## Features
 
-- **Double-click to copy text** from event views
-- **Keyboard shortcuts for event manipulation:**
-  - `Alt+h/j/k/l` - Move events (Vim-style navigation)
-  - `Alt+Shift+h/j/k/l` - Expand/shrink event duration
-  - `Alt+v` - Copy pattern selectors
-  - `Ctrl+b` - Toggle menu
+- **Move events with keyboard** — `Alt+H/J/K/L` moves the selected event left/down/up/right across the calendar grid (Vim-style)
+- **Resize events with keyboard** — `Alt+Shift+H/J/K/L` expands or shrinks event duration
+- **Works in weekly and daily views** — drag events between days or shift time slots in 15-minute increments
+- **Smart input fallback** — if drag mode isn't available, automatically edits the date/time fields directly
+- **Copy event text** — double-click to copy text from event detail views
+
+## Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Alt+K` | Move event earlier (up / -15 min) |
+| `Alt+J` | Move event later (down / +15 min) |
+| `Alt+H` | Move event to previous day (left) |
+| `Alt+L` | Move event to next day (right) |
+| `Alt+Shift+K` | Shrink event duration (earlier end) |
+| `Alt+Shift+J` | Expand event duration (later end) |
+| `Alt+Shift+H` | Shrink event duration (earlier start) |
+| `Alt+Shift+L` | Expand event duration (later start) |
+| `Alt+V` | Copy pattern selectors to clipboard |
+| `Ctrl+B` | Toggle sidebar menu |
 
 ## Installation
 
@@ -18,52 +40,38 @@ A userscript that enhances Google Calendar with keyboard shortcuts and text copy
    - [Violentmonkey](https://violentmonkey.github.io/) (Chrome/Firefox/Edge)
    - [Greasemonkey](https://www.greasespot.net/) (Firefox)
 
-2. Install the script from one of these sources:
-   - **[Install from GitHub](https://raw.githubusercontent.com/snomiao/google-calendar-keyboard-enhance.user.js/main/google-calendar-keyboard-enhance.user.js)** (Direct link from this repository)
-   - [Greasy Fork](https://greasyfork.org/scripts/439210)
-   - [Direct install from Greasy Fork](https://update.greasyfork.org/scripts/439210/%5BSNOLAB%5D%20Google%20Calendar%20keyboard%20enhance.user.js)
+2. Install the script:
+   - **[Install from Greasy Fork](https://greasyfork.org/scripts/439210)** (recommended)
+   - [Install from GitHub](https://raw.githubusercontent.com/snomiao/google-calendar-keyboard-enhance.user.js/main/google-calendar-keyboard-enhance.user.js)
 
-## Usage
+## How It Works
 
-Once installed, the script automatically enhances Google Calendar when you visit:
-- https://calendar.google.com
+1. Open [Google Calendar](https://calendar.google.com) in weekly or daily view
+2. Click on an event to select it (a floating event popup appears)
+3. Hold `Alt` and press `H/J/K/L` to move the event around the grid
+4. Hold `Alt+Shift` and press `H/J/K/L` to resize the event
+5. Release `Alt` to confirm the new position
 
-### Keyboard Shortcuts
+The script uses two strategies:
+- **Drag simulation**: Dispatches mouse events to drag the event chip on the calendar grid
+- **Input field editing**: Falls back to directly modifying date/time input fields when the event editor is open
 
-| Shortcut | Action |
-|----------|--------|
-| `Alt+k` | Move event up |
-| `Alt+j` | Move event down |
-| `Alt+h` | Move event left |
-| `Alt+l` | Move event right |
-| `Alt+Shift+k` | Shrink event duration (from bottom) |
-| `Alt+Shift+j` | Expand event duration (from bottom) |
-| `Alt+Shift+h` | Shrink event duration (from right) |
-| `Alt+Shift+l` | Expand event duration (from right) |
-| `Alt+v` | Copy pattern selectors |
-| `Ctrl+b` | Toggle main menu |
+## Related
+
+- [Google Calendar built-in keyboard shortcuts](https://support.google.com/calendar/answer/37034)
+- [CapsLockX](https://github.com/snomiao/CapsLockX) — Keyboard enhancement tool for Windows with physics-based cursor acceleration
 
 ## Development
-
-To modify this script:
 
 1. Clone the repository
 2. Edit `google-calendar-keyboard-enhance.user.js`
 3. Test in your browser with a userscript manager
-4. Submit a pull request with your improvements
+4. Submit a pull request
 
 ## License
 
-This project is open source. Feel free to use and modify as needed.
+MIT License - see [LICENSE](LICENSE)
 
 ## Author
 
 Created by [snomiao](mailto:snomiao@gmail.com)
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Support
-
-If you encounter any issues or have suggestions, please open an issue on GitHub.
