@@ -11,7 +11,7 @@
 // @name:de           [SNOLAB] Google Kalender Tastaturverbesserung
 // @name:ru           [SNOLAB] Google Календарь улучшение клавиатуры
 // @namespace         https://userscript.snomiao.com/
-// @version           0.3.0
+// @version           0.3.1
 // @description       Move and resize Google Calendar events with keyboard hotkeys (no mouse needed). Vim-style Alt+HJKL shortcuts to drag events between days and time slots. Alt+Shift+HJKL to expand/shrink event duration. Reschedule events without clicking.
 // @description:en    Move and resize Google Calendar events with keyboard hotkeys (no mouse needed). Vim-style Alt+HJKL shortcuts to drag events between days and time slots. Alt+Shift+HJKL to expand/shrink event duration. Reschedule events without clicking.
 // @description:zh    用键盘快捷键移动和调整Google日历事件（无需鼠标）。Vim风格Alt+HJKL拖拽日程到不同日期和时间段，Alt+Shift+HJKL扩展/缩小事件时长。键盘重新安排日程，告别鼠标拖拽。
@@ -96,7 +96,7 @@ function hotkeys(m, { signal, capture } = {}) {
   );
 }
 function accTicker(f, { signal } = {}) {
-  let x, v, a, g, t, id;
+  let x, v, a, g, t, t1, o, id;
   const reset = () => x = v = a = g = t = 0;
   const active = () => Math.max(...[v, a, g].map((e) => Math.abs(e))) > 0.08;
   signal?.addEventListener('abort', () => id = (clearInterval(id) || reset()))
@@ -214,8 +214,11 @@ function eventDrag([dx, dy], { expand = false } = {}) {
   const onKeyUp = (e) => {
     if (!["AltLeft", "AltRight"].includes(e.code)) return;
     window.removeEventListener("keyup", onKeyUp);
+    if (!dragging) return;
+    // drop at the current drag position: a coordinate-less mouseup lands at (0,0) and GCal cancels the drag
+    const { pos } = dragging;
     dragging = null;
-    document.dispatchEvent(new MouseEvent("mouseup", { bubbles: true, cancelable: true }));
+    document.dispatchEvent(new MouseEvent("mouseup", { ...mouseOpts(pos), buttons: 0 }));
   };
   window.addEventListener("keyup", onKeyUp);
 }
