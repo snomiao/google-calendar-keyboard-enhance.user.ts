@@ -1,0 +1,14 @@
+{
+  "name": "google-calendar-keyboard-enhance-dev",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun run dev.ts",
+    "vite": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^8.3.0",
+    "vite-plugin-monkey": "^8.1.1"
+  }
+}
